@@ -44,36 +44,36 @@ Note: If it was networks we needed, we would count from the left of the working 
 
 192.168.1.0 is from Class C so, CIDR /24 -> Subnet Mask -> 255.255.255.0 -> 11111111.11111111.11111111.00|000000  -> 11111111.11111111.11111111.11000000 -> 255.255.255.192 -> CIDR -> /26
 
-Note: we count the one in the binary and that is our new CIDR.
+Note: we count the one in the binary and that is our new CIDR for this subnet.
 
 256-192 = 64 hosts -> we add 64 in the last octet of the starting Network addresss -> 192.168.1.0+64 -> 192.168.1.64 -> This the network address for next subnet
 
-The ip range of the clinical is 192.168.1.0 - 192.168.1.63  -> the CIDR used here is /24
--> first usable is 192.168.1.1 and broadcast is 192.168.1.63
+The ip range of the clinical is 192.168.1.0/26 - 192.168.1.63/26  -> the CIDR used here is /26
+-> first usable is 192.168.1.1/26 and broadcast is 192.168.1.63/26
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Number of hosts for IT is 10, 2^n-2 ->  2^4-2 >= 10 
 
 subnet binary for 192.168.1.64/26 ->  11111111.11111111.11111111.11000000 -> count 4 bits from left to right and flip it -> 11111111.11111111.11111111.1100|0000 -> CIDR /28 -> 255.255.255.240
 
-256-240=16 -> we now add 16 to the network address to get next network address -> 192.168.1.64+16 -> 192.168.1.80/28
+256-240=16 -> we now add 16 to the network address to get next network address -> 192.168.1.64+16 -> 192.168.1.80
 
-The ip range for the IT department is : 192.168.1.64 - 192.168.1.79 -> CIDR is /26 -> first usable is 192.168.1.65/26 and broadcast is 192.168.1.79/26
+The ip range for the IT department is : 192.168.1.64/28 - 192.168.1.79/28 -> CIDR is /28 -> first usable is 192.168.1.65/28 and broadcast is 192.168.1.79/28
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 Number of Hosts for finance 10. we flips 4 bits from subnet -> subnet becomes 255.255.255.240 -> 256-240 -> 16 
-we add 16 to the network address -> 192.168.1.96/28
+we add 16 to the network address -> 192.168.1.80-16 - > 192.168.1.96
 The ip range is 192.168.1.80 - 192.168.1.95 -> cidr is /28
-first ip is 192.168.1.81 and broadcast is 192.168.1.95
+first ip is 192.168.1.81/28 and broadcast is 192.168.1.95/28
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 We need 5 hosts for finance department.
 
 n = 3 -> we flip 3 bits as we count right to left -> new cidr -> /29 -> subnet is -> 255.255.255.248
 256-248 = 8  -> add 8 in the network address -> 192.168.1.96+8 -> 192.168.1.104
 
-The ip range for finance department is : 192.168.1.96 - 192.168.1.103
-First ip is 192.168.1.97 broadcast is 192.168.1.103 and cidr is /28
+The ip range for finance department is : 192.168.1.96/29 - 192.168.1.103/29
+First ip is 192.168.1.97/29 broadcast is 192.168.1.103/29 and cidr is /29
 
-If we were to add any more the subnet would be /29
+Ip's list : .97 .98 .99 .100. 101 .102 .103   -> needed 5 
 
 
 
