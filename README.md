@@ -75,21 +75,6 @@ First ip is 192.168.1.97/29 broadcast is 192.168.1.103/29 and cidr is /29
 
 Ip's list : .97 .98 .99 .100. 101 .102 .103   -> needed 5 
 
-BASIC ROUTER AND SWITCH COMMANDS:
-
-config t -> hostname <anythin>
-password setup: config t -> enable secret <password>
-console password: config t -> line console 0 -> password <password> -> login -> exit
-
-
-
-for ssh setup hostname is mandatory for a device and you need a domain name and it can be anything: 
-
-config t -> username admin password password 123 -> ip domain-name example.com -> crypto key generate rsa -> choose a number and enter -> line vty 0 4 -> login local -> transport input ssh -> ext
-
-
-
-
 
 
 
